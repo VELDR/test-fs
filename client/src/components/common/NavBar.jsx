@@ -11,10 +11,10 @@ import MenuItem from '@mui/material/MenuItem';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import AvatarMenu from './AvatarMenu';
-import { setCredentials } from '../features/auth/authSlice';
+import AvatarMenu from '../user/AvatarMenu';
+import { setCredentials } from '../../features/authSlice';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Product', 'About'];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState();
@@ -90,7 +90,14 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography
+                    textAlign="center"
+                    component="a"
+                    href={`/${page.toLowerCase()}`}
+                    sx={{ textDecoration: 'none', color: 'black' }}
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -104,10 +111,11 @@ const NavBar = () => {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
+              fontSize: { xs: 13 },
               flexGrow: 1,
               fontFamily: 'sans-serif',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: { xs: '.2rem', md: '.3rem' },
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -119,7 +127,17 @@ const NavBar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                href={`/${page.toLowerCase()}`}
+                sx={{
+                  my: 2,
+                  mx: 2,
+                  color: 'white',
+                  display: 'block',
+                  ':hover': {
+                    color: 'black',
+                    bgcolor: 'white',
+                  },
+                }}
               >
                 {page}
               </Button>

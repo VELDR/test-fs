@@ -5,20 +5,13 @@ import {
   IconButton,
   MenuItem,
   Popover,
-  Stack,
   Typography,
   alpha,
 } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../features/auth/authSlice';
-
-const MENU_OPTIONS = [
-  {
-    label: 'Profile',
-  },
-];
+import { logout } from '../../features/authSlice';
 
 const AvatarMenu = () => {
   const [open, setOpen] = useState(null);
@@ -35,7 +28,6 @@ const AvatarMenu = () => {
   };
 
   const handleLogout = () => {
-    // clear user data from local storage
     dispatch(logout());
     localStorage.removeItem('user');
     navigate('/');
@@ -98,16 +90,8 @@ const AvatarMenu = () => {
 
             <Divider sx={{ borderStyle: 'dashed' }} />
 
-            <Stack sx={{ p: 1 }}>
-              {MENU_OPTIONS.map((option) => (
-                <MenuItem key={option.label}>{option.label}</MenuItem>
-              ))}
-            </Stack>
-
-            <Divider sx={{ borderStyle: 'dashed' }} />
-
             <MenuItem onClick={handleLogout} sx={{ m: 1 }}>
-              Sign Out
+              Log Out
             </MenuItem>
           </Popover>
         </>

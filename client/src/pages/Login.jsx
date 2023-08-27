@@ -9,14 +9,14 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import EmailField from '../components/EmailField';
-import PasswordField from '../components/PasswordField';
+import EmailField from '../components/user/EmailField';
+import PasswordField from '../components/user/PasswordField';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import { useDispatch } from 'react-redux';
-import { setCredentials } from '../features/auth/authSlice';
+import { setCredentials } from '../features/authSlice';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -117,7 +117,7 @@ const Login = () => {
             Login
           </Button>
 
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
             <Link href="/register" variant="body2">
               {"Don't have an account? Register"}
             </Link>

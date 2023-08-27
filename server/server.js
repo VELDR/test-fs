@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 const userRoute = require('./routes/user');
+const productRoute = require('./routes/product');
 
 //middlewares
 app.use(cors());
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/user', userRoute);
+app.use('/api/product', productRoute);
 
 mongoose.set('strictQuery', false);
 mongoose

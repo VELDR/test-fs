@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  # Node.js application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+    environment:
+      MONGO_URI: mongodb://mongo:27017/klontong
+    command: sh ./setup.sh
+
+  # MongoDB service
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'

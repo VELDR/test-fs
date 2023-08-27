@@ -2,9 +2,7 @@ import {
   Alert,
   Box,
   Button,
-  Checkbox,
   Container,
-  FormControlLabel,
   Link,
   Paper,
   Slide,
@@ -13,8 +11,8 @@ import {
   Typography,
 } from '@mui/material';
 import { useState } from 'react';
-import PasswordField from '../components/PasswordField';
-import EmailField from '../components/EmailField';
+import PasswordField from '../components/user/PasswordField';
+import EmailField from '../components/user/EmailField';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -133,11 +131,6 @@ const Register = () => {
           <EmailField email={email} setEmail={setEmail} />
           <PasswordField password={password} setPassword={setPassword} />
 
-          {/* For aesthetics */}
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth

@@ -19,7 +19,6 @@ const PasswordField = ({ password, setPassword }) => {
 
   return (
     <>
-      {' '}
       <FormControl variant="outlined" fullWidth margin="normal">
         <InputLabel required>Password</InputLabel>
         <OutlinedInput

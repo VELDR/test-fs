@@ -7,8 +7,10 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
-import Product from './pages/Product';
+import { store } from './redux/store';
+import ProductDetails from './pages/ProductDetails';
+import ProductList from './pages/ProductList';
+import About from './pages/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -45,7 +47,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/product',
-    element: <Product />,
+    element: <ProductList />,
+  },
+  {
+    path: '/product/:id',
+    element: <ProductDetails />,
+  },
+  {
+    path: '/about',
+    element: <About />,
   },
 ]);
 
