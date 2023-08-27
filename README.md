@@ -24,7 +24,7 @@ cd ../server
 
 ### Option 1: Use Docker (Recommended if you don't have MongoDB installed locally)
 
-If you have Docker installed, run the following command:
+If you have Docker and Docker Compose installed, run the following command:
 
 ```
 docker compose up
