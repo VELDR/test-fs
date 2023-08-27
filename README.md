@@ -27,7 +27,8 @@ cd ../server
 If you have Docker and Docker Compose installed, run the following command:
 
 ```
-docker compose up
+cp .env.example .env
+docker-compose up
 ```
 
 ### Option 2: Use Local MongoDB (If you have MongoDB installed locally)
